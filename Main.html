@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Entangle: Papan</title>
+</head>
+<body>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F1F2EC}
+a{color:#14201C}a:hover{color:#1B3BC4}
+:focus-visible{outline:3px solid #1B3BC4;outline-offset:2px}
+</style>
+<div style="min-height: 100vh; background: #F1F2EC; color: #14201C; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+<header style="border-bottom: 2px solid #14201C">
+<div style="max-width: 1320px; margin: 0 auto; padding: 20px 32px 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<a href="Main.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">
+<svg aria-hidden="true" width="30" height="20" viewBox="0 0 30 20"><circle cx="10" cy="10" r="7.5" fill="none" stroke="#14201C" stroke-width="3"></circle><circle cx="20" cy="10" r="7.5" fill="none" stroke="#1B3BC4" stroke-width="3"></circle></svg>
+Entangle</a>
+<span style="font-size: 15px; color: #4D5953">Capstone — SiPanen</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-size: 14px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px">
+<span aria-hidden="true" style="width: 8px; height: 8px; background: #1B3BC4; display: inline-block"></span>
+sipanen-team/sipanen-app · terhubung · sinkron 2 menit lalu</span>
+<div style="display: flex; align-items: center; gap: 8px">
+<span style="color: #4D5953">Lihat sebagai</span>
+<div style="display: flex; border: 1px solid #14201C">
+<a href="Main.html" aria-current="true" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; background: #14201C; color: #F1F2EC; text-decoration: none; font-weight: 600">Mahasiswa</a>
+<a href="Log.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; text-decoration: none">Mentor</a>
+</div>
+</div>
+<span style="font-weight: 600">Rafa</span>
+</div>
+</div>
+<nav aria-label="Navigasi proyek" style="display: flex; flex-wrap: wrap; gap: 4px">
+<a href="Main.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; background: #14201C; color: #F1F2EC; text-decoration: none; font-weight: 600">Papan</a>
+<a href="Log.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; text-decoration: none; font-weight: 500">Log Aktivitas</a>
+<a href="#dokumen" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; text-decoration: none; font-weight: 500">Dokumen</a>
+<a href="#pengaturan" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; text-decoration: none; font-weight: 500">Pengaturan</a>
+</nav>
+</div>
+</header>
+
+<main style="max-width: 1320px; margin: 0 auto; padding: 40px 32px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 32px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 60px; line-height: 1; letter-spacing: -0.03em">Papan</h1>
+<p style="margin: 0; color: #4D5953">6 work item · 1 terverifikasi dari merge · 1 PR terbuka sedang diikuti</p>
+</div>
+<button type="button" style="min-height: 48px; padding: 0 22px; background: #14201C; color: #F1F2EC; border: 0; border-radius: 2px; font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer">+ Work item baru</button>
+</div>
+
+<div role="status" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px; padding: 6px 16px; background: #FAFAF6; border: 1px solid #14201C">
+<p style="margin: 0"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #4D5953">Baru saja · 09.31</span>&nbsp;&nbsp;ENT-14 “Endpoint hasil panen” dibuat di To Do, PIC Enggar.</p>
+<button type="button" style="min-height: 44px; padding: 0 8px; background: none; border: 0; font-family: inherit; font-size: 16px; font-weight: 600; color: #14201C; text-decoration: underline; cursor: pointer">Urungkan</button>
+</div>
+
+<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 14px; color: #4D5953">
+<span style="font-weight: 600; color: #14201C">Cara membaca papan</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="display: inline-block; padding: 1px 6px; border: 2px solid #1B3BC4; color: #1B3BC4; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.08em; transform: rotate(-2deg)">TERVERIFIKASI</span>pindah sendiri karena PR di-merge</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 10px; height: 10px; border: 2px solid #4D5953; display: inline-block; box-sizing: border-box"></span>dipindah manual oleh anggota</span>
+</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 32px 40px">
+
+<section aria-labelledby="col-todo" style="flex: 1 1 300px; min-width: 0; border-top: 2px solid #14201C">
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #14201C">
+<h2 id="col-todo" style="margin: 0; display: flex; align-items: center; gap: 10px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase"><span aria-hidden="true" style="width: 14px; height: 14px; border: 2px solid #14201C; box-sizing: border-box; display: inline-block"></span>To Do</h2>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px">3 item</span>
+</div>
+<article style="padding: 18px 0; border-bottom: 1px solid #C3C8BD; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #4D5953"><span style="font-family: 'IBM Plex Mono', monospace">ENT-14 · baru</span><span>PIC Enggar</span></div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600; line-height: 1.3"><a href="Detail.html" style="text-decoration: none">Endpoint hasil panen</a></h3>
+<p style="margin: 0; font-size: 14px; color: #4D5953">Belum ada bukti kerja · <a href="Detail.html" style="display: inline-block; padding: 10px 0; font-weight: 600">Tautkan PR</a></p>
+</article>
+<article style="padding: 18px 0; border-bottom: 1px solid #C3C8BD; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #4D5953"><span style="font-family: 'IBM Plex Mono', monospace">ENT-12</span><span>PIC Enggar</span></div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600; line-height: 1.3"><a href="#ent-12" style="text-decoration: none">API daftar hasil panen</a></h3>
+<p style="margin: 0; font-size: 14px; color: #4D5953">Belum ada bukti kerja · <a href="#ent-12" style="display: inline-block; padding: 10px 0; font-weight: 600">Tautkan PR</a></p>
+</article>
+<article style="padding: 18px 0; border-bottom: 1px solid #C3C8BD; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #4D5953"><span style="font-family: 'IBM Plex Mono', monospace">ENT-13</span><span>PIC Rafa</span></div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600; line-height: 1.3"><a href="#ent-13" style="text-decoration: none">Riset pengguna petani</a></h3>
+<p style="margin: 0; font-size: 14px; color: #4D5953">Belum ada bukti kerja · <a href="#ent-13" style="display: inline-block; padding: 10px 0; font-weight: 600">Tautkan PR</a></p>
+</article>
+</section>
+
+<section aria-labelledby="col-prog" style="flex: 1 1 300px; min-width: 0; border-top: 2px solid #14201C">
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #14201C">
+<h2 id="col-prog" style="margin: 0; display: flex; align-items: center; gap: 10px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase"><span aria-hidden="true" style="width: 14px; height: 14px; border: 2px solid #14201C; box-sizing: border-box; display: inline-block; background: linear-gradient(90deg, #14201C 50%, transparent 50%)"></span>In Progress</h2>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px">1 item</span>
+</div>
+<article style="padding: 18px 0; border-bottom: 1px solid #C3C8BD; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #4D5953"><span style="font-family: 'IBM Plex Mono', monospace">ENT-11</span><span>PIC Rafa</span></div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600; line-height: 1.3"><a href="#ent-11" style="text-decoration: none">Halaman login</a></h3>
+<p style="margin: 0; padding: 8px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 14px">
+<svg aria-hidden="true" width="40" height="12" viewBox="0 0 40 12" style="flex-shrink: 0"><circle cx="5" cy="6" r="4" fill="none" stroke="#14201C" stroke-width="2"></circle><path d="M9 6h20" stroke="#14201C" stroke-width="2"></path><rect x="29" y="2" width="8" height="8" fill="#14201C"></rect></svg>
+<span style="font-family: 'IBM Plex Mono', monospace">PR #17</span>
+<span>feat: halaman login</span>
+<span style="padding: 0 6px; border: 1px solid #A63D08; color: #A63D08; font-weight: 600; font-size: 13px">terbuka</span>
+</p>
+<p style="margin: 0; font-size: 13px; color: #4D5953">Mengikuti PR ini. Pindah ke Done sendiri saat di-merge.</p>
+</article>
+</section>
+
+<section aria-labelledby="col-done" style="flex: 1 1 300px; min-width: 0; border-top: 2px solid #14201C">
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #14201C">
+<h2 id="col-done" style="margin: 0; display: flex; align-items: center; gap: 10px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase"><span aria-hidden="true" style="width: 14px; height: 14px; background: #14201C; display: inline-block"></span>Done</h2>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px">2 item</span>
+</div>
+<article style="padding: 18px 0; border-bottom: 1px solid #C3C8BD; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #4D5953"><span style="font-family: 'IBM Plex Mono', monospace">ENT-10</span><span>PIC Dimas</span></div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600; line-height: 1.3"><a href="#ent-10" style="text-decoration: none">Desain skema database</a></h3>
+<div style="padding: 8px 0 4px">
+<div style="display: inline-flex; flex-direction: column; gap: 2px; padding: 6px 12px; border: 2px solid #1B3BC4; color: #1B3BC4; transform: rotate(-1.5deg)">
+<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 0.1em">TERVERIFIKASI</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px">PR #14 di-merge · Dimas · kemarin 16.40</span>
+</div>
+</div>
+</article>
+<article style="padding: 18px 0; border-bottom: 1px solid #C3C8BD; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #4D5953"><span style="font-family: 'IBM Plex Mono', monospace">ENT-09</span><span>PIC Enggar</span></div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 600; line-height: 1.3"><a href="#ent-09" style="text-decoration: none">Wireframe beranda</a></h3>
+<p style="margin: 0; padding: 8px 0; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4D5953"><span aria-hidden="true" style="width: 10px; height: 10px; border: 2px solid #4D5953; display: inline-block; box-sizing: border-box"></span>Dipindah manual oleh Enggar · tanpa PR · kemarin 14.05</p>
+</article>
+</section>
+
+</div>
+
+<p style="margin: 0; font-size: 14px; color: #4D5953; max-width: 70ch">Item yang tertaut ke PR pindah ke Done paling lambat 1 menit setelah PR di-merge di GitHub. Item tanpa PR tetap bisa dipindah manual, dan tercatat sebagai manual di Log Aktivitas.</p>
+
+</main>
+</div>
+</body>
+</html>
