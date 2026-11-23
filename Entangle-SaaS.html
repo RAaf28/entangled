@@ -202,6 +202,16 @@ dialog .pad{display:flex; flex-direction:column; gap:16px; padding:22px 24px}
 .mlist li{padding:10px 0; border-bottom:1px solid var(--line)}
 .mlist li:last-child{border-bottom:0}
 a.btn{text-decoration:none; color:inherit}
+/* mentor overview: every tile and row is a button that opens its details */
+button.stat{font:inherit; color:inherit; text-align:left; cursor:pointer; display:flex; flex-direction:column; gap:2px; min-height:44px}
+button.stat:hover,.ov:hover{border-color:#B9C2BE}
+.stat .go,.ov .go{color:var(--brand-strong); font-weight:600; font-size:13px; margin-top:6px}
+.ovs{display:flex; flex-direction:column; gap:8px}
+.ovh{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:6px}
+.ovh h3{margin:0; font-size:14px}
+.ov{flex-direction:row; align-items:center; gap:12px}
+.ov .b{display:flex; flex-direction:column; gap:4px; flex:1; min-width:0}
+.ov .go{margin:0; display:inline-flex; align-items:center; gap:4px; white-space:nowrap}
 </style>
 <!-- Maze website testing: paste the Maze snippet for this project here, then host this file. -->
 </head>
@@ -272,7 +282,11 @@ const S = {
     { id: 'ENT-12', title: 'Harvest list API', pic: 'Enggar', status: 'todo', pr: null, verified: false, desc: 'GET endpoint listing harvests per farmer.' },
     { id: 'ENT-11', title: 'Login page', pic: 'Rafa', status: 'prog', pr: 17, verified: false, desc: 'Login form with email and password.' },
     { id: 'ENT-10', title: 'Database schema design', pic: 'Dimas', status: 'done', pr: 14, verified: true, desc: 'Tables for farmers, fields and harvests.' },
-    { id: 'ENT-09', title: 'Home wireframe', pic: 'Enggar', status: 'done', pr: null, verified: false, desc: 'Sketch of the farmer home screen.' }
+    { id: 'ENT-09', title: 'Home wireframe', pic: 'Enggar', status: 'done', pr: null, verified: false, desc: 'Sketch of the farmer home screen.' },
+    { id: 'ENT-08', title: 'Rent hall for farmer demo day', pic: 'Dimas', status: 'done', pr: null, verified: true, desc: 'Village hall for the demo on 5 Dec, 80 seats.',
+      ev: { kind: 'Contract', name: 'hall-rental-contract.pdf', note: 'Signed by the village office.', by: 'Dimas', t: 'Yesterday 11:20', state: 'approved' } },
+    { id: 'ENT-07', title: 'Buy seed samples for demo', pic: 'Enggar', status: 'prog', pr: null, verified: false, desc: 'Three seed varieties to show at the demo. Budget Rp 450.000.',
+      ev: { kind: 'Receipt', name: 'receipt-seed-shop.jpg', note: 'Total Rp 412.000, under budget.', by: 'Enggar', t: 'Today 08:30', state: 'pending' } }
   ],
   prs: {
     14: { title: 'feat: database schema', author: 'Dimas', status: 'merged' },
@@ -282,32 +296,36 @@ const S = {
   },
   log: [
     { day: 'Today', t: '09:12', src: 'member', by: 'Rafa', item: 'ENT-11', text: 'Rafa linked PR #17 to ENT-11 · To Do → In Progress' },
+    { day: 'Today', t: '08:30', src: 'member', by: 'Enggar', item: 'ENT-07', text: 'Enggar attached receipt "receipt-seed-shop.jpg" to ENT-07 · To Do → In Progress' },
     { day: 'Yesterday', t: '16:40', src: 'github', by: 'Dimas', item: 'ENT-10', text: 'Dimas merged PR #14 · ENT-10 moved to Done automatically', verified: true },
-    { day: 'Yesterday', t: '15:10', src: 'member', by: 'Ms. Sari', item: 'ENT-11', text: 'Ms. Sari commented on ENT-11' },
-    { day: 'Yesterday', t: '14:05', src: 'member', by: 'Enggar', item: 'ENT-09', text: 'Enggar moved ENT-09 to Done manually, without a PR' }
+    { day: 'Yesterday', t: '15:10', src: 'member', by: 'Hafiz', item: 'ENT-11', text: 'Hafiz commented on ENT-11' },
+    { day: 'Yesterday', t: '14:05', src: 'member', by: 'Enggar', item: 'ENT-09', text: 'Enggar moved ENT-09 to Done manually, without proof' },
+    { day: 'Yesterday', t: '11:45', src: 'review', by: 'Hafiz', item: 'ENT-08', text: 'Hafiz approved the contract on ENT-08 · moved to Done', verified: true },
+    { day: 'Yesterday', t: '11:20', src: 'member', by: 'Dimas', item: 'ENT-08', text: 'Dimas attached contract "hall-rental-contract.pdf" to ENT-08 · To Do → In Progress' }
   ],
   docs: [
     { id: 'DOC-2', title: 'Farmer interview guide', by: 'Rafa', item: 'ENT-13', body: 'Goal: learn how farmers record a harvest today.\n\n1. How do you note down a harvest right now?\n2. Who else needs to see that record?\n3. What goes wrong most often?' },
     { id: 'DOC-1', title: 'Harvest API spec', by: 'Enggar', item: null, body: 'GET /harvests?farmer_id=&season=\n\nReturns the harvest list for one farmer, newest first.\nFields: id, field_id, crop, weight_kg, harvested_at.' }
   ],
   materials: [
-    { title: 'How to write a pull request description', url: 'https://docs.github.com/en/pull-requests', by: 'Ms. Sari' }
+    { title: 'How to write a pull request description', url: 'https://docs.github.com/en/pull-requests', by: 'Indy' }
   ],
   comments: [
-    { id: 1, item: 'ENT-11', by: 'Ms. Sari', t: 'Yesterday 15:10', text: 'Remember to handle the wrong-password case before you merge.', replies: [] }
+    { id: 1, item: 'ENT-11', by: 'Hafiz', t: 'Yesterday 15:10', text: 'Remember to handle the wrong-password case before you merge.', replies: [] }
   ],
   members: [
     { name: 'Rafa', email: 'rafa@example.com', role: 'Student' },
     { name: 'Enggar', email: 'enggar@example.com', role: 'Student' },
     { name: 'Dimas', email: 'dimas@example.com', role: 'Student' },
-    { name: 'Ms. Sari', email: 'sari@example.com', role: 'Mentor' }
+    { name: 'Hafiz', email: 'hafiz@example.com', role: 'Mentor' },
+    { name: 'Indy', email: 'indy@example.com', role: 'Mentor' }
   ],
   repo: { state: 'connected', name: 'sipanen-team/sipanen-app' },
   share: { on: false, token: 'k7qm2xvd' },
   logMember: '', logItem: '', docOpen: null, editing: null
 };
 const DATA = ['items', 'prs', 'log', 'next', 'docs', 'materials', 'comments', 'members', 'repo', 'share'];
-const VIEWS = ['board', 'log', 'docs', 'settings'];
+const VIEWS = ['overview', 'board', 'log', 'docs', 'settings'];
 let snap = null, toastTimer = null;
 
 const $ = (id) => document.getElementById(id);
@@ -353,7 +371,10 @@ const P = {
   edit: '<path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/>',
   copy: '<path d="M9 9h11v11H9zM5 15H4V4h11v1"/>',
   users: '<circle cx="9" cy="8" r="3.5"/><path d="M2 20c1-4 13-4 14 0M16 5a3.5 3.5 0 010 6.5M18 15c2 .5 3.5 2 4 5"/>',
-  left: '<path d="M15 6l-6 6 6 6"/>'
+  left: '<path d="M15 6l-6 6 6 6"/>',
+  clip: '<path d="M20 11l-8.5 8.5a5 5 0 01-7-7L13 4a3.5 3.5 0 015 5l-8.5 8.5a2 2 0 01-3-3L14 7"/>',
+  spark: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7z"/>',
+  home: '<path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/>'
 };
 const ic = (name, size) => '<svg aria-hidden="true" width="' + (size || 16) + '" height="' + (size || 16) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + P[name] + '</svg>';
 
@@ -362,6 +383,8 @@ const verifiedTag = '<span class="tag verified">' + ic('shield', 13) + 'Verified
 const manualTag = '<span class="tag manual">' + ic('user', 13) + 'manual</span>';
 const flagTag = (it) => (it.flag ? '<span class="tag closed">' + ic('alert', 13) + esc(it.flag) + '</span>' : '');
 const prTag = (n) => '<span class="tag ' + S.prs[n].status + '">' + ic({ merged: 'merge', closed: 'x' }[S.prs[n].status] || 'pr', 13) + '<span class="mono" style="font-size:12px">#' + n + '</span> ' + S.prs[n].status + '</span>';
+const evTag = (ev) => '<span class="tag ' + (ev.state === 'approved' ? 'merged' : 'open') + '">' + ic('clip', 13) + ev.kind.toLowerCase() + (ev.state === 'approved' ? '' : ' · awaiting approval') + '</span>';
+const pending = () => S.items.filter((i) => i.ev && i.ev.state === 'pending');
 const newBtn = () => (isMhs() ? '<button type="button" class="btn primary" data-a="new">' + ic('plus') + 'Work item</button>' : '');
 
 function save() { const o = {}; DATA.forEach((k) => { o[k] = S[k]; }); snap = JSON.stringify(o); }
@@ -374,7 +397,7 @@ function route() {
     const ok = S.share.on && seg[1] === S.share.token;
     S.role = 'link'; S.open = null;
     seg = seg.slice(2);
-    S.view = !ok ? 'dead' : seg[0] === 'log' ? 'log' : 'board';
+    S.view = !ok ? 'dead' : ['log', 'overview'].includes(seg[0]) ? seg[0] : 'board';
   } else {
     if (S.role === 'link') S.role = 'mhs';
     S.view = VIEWS.includes(seg[0]) ? seg[0] : 'board';
@@ -432,6 +455,33 @@ function closePr(id) { // FR-14: closed without merge sends the item back to To 
   S.flash = id;
   toast('PR #' + it.pr + ' closed without merge · ' + id + ' returned to To Do', false);
 }
+// Non-code proof (receipt, photo, contract): a reviewer other than the uploader approves it, which is what makes it Verified.
+function attachEv(id, kind, name, note) {
+  save();
+  const it = item(id);
+  it.ev = { kind: kind, name: name, note: note, by: ME, t: 'Today ' + now(), state: 'pending' }; delete it.flag;
+  const moved = it.status === 'todo';
+  if (moved) it.status = 'prog';
+  addLog('member', id, ME + ' attached ' + kind.toLowerCase() + ' "' + name + '" to ' + id + (moved ? ' · To Do → In Progress' : ''));
+  S.attaching = false; S.flash = id;
+  toast(kind + ' attached' + (moved ? ' · ' + id + ' moved to In Progress' : '') + ' · waiting for approval', true);
+}
+function removeEv(id) {
+  save();
+  const it = item(id), k = it.ev.kind.toLowerCase();
+  it.ev = null;
+  if (it.status === 'prog') it.status = 'todo';
+  addLog('member', id, ME + ' removed the ' + k + ' from ' + id);
+  toast('Proof removed', true);
+}
+function approveEv(id) {
+  save();
+  const it = item(id);
+  it.ev.state = 'approved'; it.status = 'done'; it.verified = true;
+  addLog('review', id, 'Hafiz approved the ' + it.ev.kind.toLowerCase() + ' on ' + id + ' · moved to Done', true, 'Hafiz');
+  S.flash = id;
+  toast(it.ev.kind + ' approved · ' + id + ' moved to Done as Verified', true);
+}
 function updateItem(id, title, desc, pic) {
   save();
   const it = item(id);
@@ -462,13 +512,13 @@ function linkDoc(docId, id) {
 }
 function addMaterial(title, url) {
   save();
-  S.materials.unshift({ title: title, url: url, by: 'Ms. Sari' });
+  S.materials.unshift({ title: title, url: url, by: 'Hafiz' });
   toast('Learning material added', true);
 }
 function addComment(id, text) {
   save();
-  S.comments.push({ id: Date.now(), item: id, by: 'Ms. Sari', t: 'Today ' + now(), text: text, replies: [] });
-  addLog('member', id, 'Ms. Sari commented on ' + id, false, 'Ms. Sari');
+  S.comments.push({ id: Date.now(), item: id, by: 'Hafiz', t: 'Today ' + now(), text: text, replies: [] });
+  addLog('member', id, 'Hafiz commented on ' + id, false, 'Hafiz');
   toast('Comment added', true);
 }
 function addReply(cid, text) {
@@ -498,19 +548,20 @@ function cardHtml(it) {
     '<span class="mono muted">' + it.id + '</span>' +
     '<span class="t">' + esc(it.title) + '</span>' +
     '<span class="f">' + av(it.pic) + '<span class="muted" style="font-size:13px; margin-right:auto">' + esc(it.pic) + '</span>' +
-    (it.pr ? prTag(it.pr) : '') + flagTag(it) +
+    (it.pr ? prTag(it.pr) : '') + (it.ev ? evTag(it.ev) : '') + flagTag(it) +
     (it.verified ? verifiedTag : (it.status === 'done' ? manualTag : '')) +
     '</span></button>';
 }
+const stat = (path, n, icon, label, go) => { const [v, f] = path.split('/');
+  return '<button type="button" class="stat" data-a="view" data-v="' + v + '"' + (f ? ' data-f="' + f + '"' : '') + '><b>' + n + '</b><span class="muted">' + ic(icon) + label + '</span><span class="go">' + go + ic('right', 14) + '</span></button>'; };
 function mentorHead() {
-  const openPrs = Object.values(S.prs).filter((p) => p.status === 'open').length;
   return '<div class="banner">' + ic('eye', 18) + '<span>' + (isLink()
-    ? '<b>Shared view</b> — read only, live. Items marked Verified were moved by a merged PR on GitHub, not by hand. <a href="#/board" style="color:var(--brand-strong); font-weight:600">Back to team view (prototype only)</a>'
+    ? '<b>Shared view</b> — read only, live. Items marked Verified are backed by checked proof: a merged PR, or a receipt, photo or contract approved by a reviewer. <a href="#/board" style="color:var(--brand-strong); font-weight:600">Back to team view (prototype only)</a>'
     : '<b>You are viewing as Mentor</b> — you can read and comment. Work items are changed by the team.') + '</span></div>' +
     '<div class="stats">' +
-    '<div class="stat"><b>' + S.items.filter((i) => i.verified).length + '</b><span class="muted">' + ic('shield') + 'Verified Done items this week</span></div>' +
-    '<div class="stat"><b>' + openPrs + '</b><span class="muted">' + ic('pr') + 'open PRs</span></div>' +
-    '<div class="stat"><b>' + S.log[0].t + '</b><span class="muted">' + ic('clock') + 'last activity · ' + S.log[0].day.toLowerCase() + '</span></div>' +
+    stat('board/done', S.items.filter((i) => i.verified).length, 'shield', 'Verified Done items this week', 'See finished work') +
+    stat('board/prog', pending().length, 'clip', 'proofs waiting for approval', 'See what to review') +
+    stat('log', S.log[0].t, 'clock', 'last activity · ' + S.log[0].day.toLowerCase(), 'See the activity log') +
     '</div>';
 }
 function boardHtml() {
@@ -520,7 +571,7 @@ function boardHtml() {
       (list.length ? list.map(cardHtml).join('') : '<p class="empty">No items yet</p>') + '</section>';
   }).join('');
   return (isMhs() ? '' : mentorHead()) +
-    '<div class="bar"><p class="muted">' + workItems(S.items.length) + ' · status moves from PRs, not from memory</p>' + newBtn() + '</div>' +
+    '<div class="bar"><p class="muted">' + workItems(S.items.length) + ' · status moves from proof of work, not from memory</p>' + newBtn() + '</div>' +
     progressHtml() +
     '<div class="cols">' + cols + '</div>';
 }
@@ -534,7 +585,7 @@ function progressHtml() {
   const verified = S.items.filter((i) => i.verified).length;
   return '<section class="prog-card" aria-labelledby="prog-h"><h2 id="prog-h">' + ic('chart') + 'Project progress</h2>' +
     '<p class="hero"><b>' + pct(n('done')) + '%</b><span>' + n('done') + ' of ' + workItems(total) + ' done</span>' +
-    '<span class="muted">· ' + verified + ' of them verified by a merge</span></p>' +
+    '<span class="muted">· ' + verified + ' of them verified by proof</span></p>' +
     '<div class="pbar" role="img" aria-label="' + order.map((st) => LABEL[st] + ' ' + n(st)).join(', ') + ' of ' + workItems(total) + '">' +
     order.filter((st) => n(st)).map((st) => '<span class="' + st + '" style="flex:' + n(st) + '" title="' + LABEL[st] + ': ' + items(n(st)) + ' (' + pct(n(st)) + '%)"></span>').join('') + '</div>' +
     '<div class="legend">' + order.map((st) =>
@@ -545,20 +596,23 @@ function progressHtml() {
 function listHtml() {
   const st = S.filter, list = S.items.filter((i) => i.status === st);
   const info = {
-    todo: 'Not started. Linking a PR moves an item to In Progress.',
-    prog: 'In the works. An item moves to Done by itself when its PR is merged.',
-    done: list.filter((i) => i.verified).length + ' verified by a merge · ' + list.filter((i) => !i.verified).length + ' moved manually'
+    todo: 'Not started. Linking a PR or attaching proof moves an item to In Progress.',
+    prog: 'In the works. An item moves to Done when its PR is merged or its proof is approved.',
+    done: list.filter((i) => i.verified).length + ' verified by proof · ' + list.filter((i) => !i.verified).length + ' moved manually'
   }[st];
   const rows = list.map((it) => {
     const last = S.log.find((e) => e.item === it.id);
     const evidence = it.verified ? verifiedTag
       : it.status === 'done' ? manualTag
-      : '<span class="muted">' + (it.pr ? 'awaiting merge' : 'none yet') + '</span>';
+      : '<span class="muted">' + (it.pr ? 'awaiting merge' : it.ev ? 'awaiting approval' : 'none yet') + '</span>';
+    const proof = it.pr ? prTag(it.pr) + '<br><span style="font-size:13px">' + esc(S.prs[it.pr].title) + ' · ' + S.prs[it.pr].author + '</span>'
+      : it.ev ? evTag(it.ev) + '<br><span style="font-size:13px">' + esc(it.ev.name) + ' · ' + esc(it.ev.by) + '</span>'
+      : '<span class="muted">No proof yet</span>';
     return '<tr' + (S.flash === it.id ? ' class="flash"' : '') + '>' +
       '<td><span class="mono muted">' + it.id + '</span><br><button type="button" class="link" data-a="open" data-id="' + it.id + '">' + esc(it.title) + '</button>' +
       (it.desc ? '<br><span class="muted" style="font-size:13px">' + esc(it.desc) + '</span>' : '') + '</td>' +
       '<td><span class="row" style="flex-wrap:nowrap">' + av(it.pic) + esc(it.pic) + '</span></td>' +
-      '<td>' + (it.pr ? prTag(it.pr) + '<br><span style="font-size:13px">' + esc(S.prs[it.pr].title) + ' · ' + S.prs[it.pr].author + '</span>' : '<span class="muted">No PR yet</span>') + '</td>' +
+      '<td>' + proof + '</td>' +
       '<td>' + evidence + '</td>' +
       '<td>' + (last ? '<span style="font-size:13px">' + esc(last.text) + '</span><br><span class="mono muted">' + last.day + ' ' + last.t + '</span>' : '<span class="muted">—</span>') + '</td></tr>';
   }).join('');
@@ -567,7 +621,7 @@ function listHtml() {
     '<div class="bar"><p class="row"><span class="pill"><span class="sdot ' + st + '"></span>' + LABEL[st] + ' · ' + list.length + '</span><span class="muted">' + info + '</span></p>' + newBtn() + '</div>' +
     stageProgressHtml(st, list) +
     (list.length
-      ? '<div class="tbl-wrap"><table><thead><tr>' + th('board', 'Work item') + th('user', 'Assignee') + th('pr', 'Pull request') + th('shield', 'Evidence') + th('clock', 'Last activity') + '</tr></thead><tbody>' + rows + '</tbody></table></div>'
+      ? '<div class="tbl-wrap"><table><thead><tr>' + th('board', 'Work item') + th('user', 'Assignee') + th('clip', 'Proof of work') + th('shield', 'Status of proof') + th('clock', 'Last activity') + '</tr></thead><tbody>' + rows + '</tbody></table></div>'
       : '<p class="empty">No items in ' + LABEL[st] + ' yet.</p>');
 }
 // Two meters per stage: its share of the project, and how much of it is backed by a PR.
@@ -575,11 +629,11 @@ function listHtml() {
 function stageProgressHtml(st, list) {
   const total = S.items.length, n = list.length;
   if (!total) return '';
-  const backed = list.filter((i) => (st === 'done' ? i.verified : i.pr)).length;
+  const backed = list.filter((i) => (st === 'done' ? i.verified : i.pr || i.ev)).length;
   const words = {
-    todo: ['linked to a PR', 'no PR yet'],
-    prog: ['following a PR', 'no PR, moved manually'],
-    done: ['verified by a merge', 'moved manually']
+    todo: ['with proof attached', 'no proof yet'],
+    prog: ['following a PR or proof', 'no proof, moved manually'],
+    done: ['verified by proof', 'moved manually']
   }[st];
   const pct = (a, b) => (b ? Math.round(a / b * 100) : 0);
   const meter = (cls, a, b, label) => '<div class="pbar" role="img" aria-label="' + label + '">' +
@@ -600,10 +654,10 @@ function stageProgressHtml(st, list) {
     '</div></section>';
 }
 function entryHtml(e) {
-  const gh = e.src === 'github';
-  return '<div class="entry"><span class="ico' + (gh ? ' gh' : '') + '">' + ic(gh ? 'merge' : 'user', 15) + '</span>' +
+  const gh = e.src === 'github', rv = e.src === 'review';
+  return '<div class="entry"><span class="ico' + (gh || rv ? ' gh' : '') + '">' + ic(gh ? 'merge' : rv ? 'check' : 'user', 15) + '</span>' +
     '<div class="b"><span>' + esc(e.text) + '</span>' +
-    '<span class="row"><span class="mono muted">' + e.t + '</span><span class="tag' + (gh ? ' verified' : ' manual') + '">' + (gh ? 'automatic · GitHub' : 'manual · member') + '</span>' + (e.verified ? verifiedTag : '') + '</span></div>' +
+    '<span class="row"><span class="mono muted">' + e.t + '</span><span class="tag' + (gh || rv ? ' verified' : ' manual') + '">' + (gh ? 'automatic · GitHub' : rv ? 'approved · reviewer' : 'manual · member') + '</span>' + (e.verified ? verifiedTag : '') + '</span></div>' +
     '<button type="button" class="link mono" data-a="open" data-id="' + e.item + '">' + e.item + '</button></div>';
 }
 function logHtml() {
@@ -619,6 +673,34 @@ function logHtml() {
   return (isMhs() ? '' : mentorHead()) + filters + (days.length ? days.map((d) =>
     '<section><h2 class="day">' + ic('clock', 14) + d + '</h2><div class="logbox">' + list.filter((e) => e.day === d).map(entryHtml).join('') + '</div></section>'
   ).join('') : '<p class="empty">No entries match these filters.</p>');
+}
+// Agent summary: turns the board and log into plain language for a non-technical reader.
+// shortcut: fixed rules over the demo data stand in for the agent, a real build calls a language model on the activity log
+function plain(it) {
+  if (it.pr) return { merged: 'the code was reviewed and added to the app', open: 'the code is written and waiting for review', closed: 'the code was dropped, so it went back to the start' }[S.prs[it.pr].status];
+  if (it.ev) return it.ev.state === 'approved' ? 'the ' + it.ev.kind.toLowerCase() + ' was checked and approved' : 'a ' + it.ev.kind.toLowerCase() + ' was uploaded and is waiting for approval';
+  return it.status === 'done' ? 'marked finished by hand, with no proof attached' : 'not started yet';
+}
+function overviewHtml() {
+  const by = (st) => S.items.filter((i) => i.status === st), total = S.items.length, done = by('done');
+  const line = (it) => '<button type="button" class="card ov" data-a="open" data-id="' + it.id + '">' +
+    '<span class="b"><span class="t">' + esc(it.title) + '</span><span class="muted" style="font-size:14px">' + plain(it)[0].toUpperCase() + plain(it).slice(1) + '.</span>' +
+    '<span class="f">' + av(it.pic) + '<span class="muted" style="font-size:13px">' + esc(it.pic) + ' · <span class="mono">' + it.id + '</span></span></span></span>' +
+    '<span class="go">' + (it.ev && it.ev.state === 'pending' && isMentor() ? 'Review proof' : 'View details') + ic('right', 14) + '</span></button>';
+  const block = (title, list, st) => (list.length ? '<div class="ovh"><h3>' + title + ' · ' + list.length + '</h3>' +
+    (st ? '<button type="button" class="link" data-a="view" data-v="board" data-f="' + st + '">See all in ' + LABEL[st] + ic('right', 14) + '</button>' : '') + '</div>' +
+    '<div class="ovs">' + list.map(line).join('') + '</div>' : '');
+  const wait = pending(), noProof = done.filter((i) => !i.verified), flagged = S.items.filter((i) => i.flag);
+  const attention = [...wait, ...flagged, ...noProof];
+  const pct = total ? Math.round(done.length / total * 100) : 0;
+  return (isMhs() ? '' : mentorHead()) +
+    '<section class="sect" aria-labelledby="ag-h"><h2 id="ag-h">' + ic('spark') + 'Progress summary</h2>' +
+    '<p style="font-size:17px; max-width:70ch">The team has finished <b>' + done.length + ' of ' + total + ' tasks (' + pct + '%)</b>. ' +
+    done.filter((i) => i.verified).length + ' of the finished tasks are backed by checked proof. ' + by('prog').length + ' are in progress and ' + by('todo').length + ' have not started.' +
+    (wait.length ? ' <b>' + wait.length + (wait.length === 1 ? ' proof is' : ' proofs are') + ' waiting for ' + (isMentor() ? 'your' : 'a reviewer\'s') + ' approval.</b>' : '') + '</p>' +
+    block('Needs attention', attention) + block('Finished', done.filter((i) => i.verified), 'done') + block('In progress', by('prog').filter((i) => !wait.includes(i)), 'prog') +
+    '<p class="hint" style="font-size:13px">' + ic('info') + '<span>Written by the Entangle agent from ' + S.log.length + ' activity entries, last one ' + S.log[0].day.toLowerCase() + ' ' + S.log[0].t + '. Open an item to check the original proof.</span></p></section>' +
+    progressHtml();
 }
 function docsHtml() {
   const d = S.docOpen && S.docs.find((x) => x.id === S.docOpen);
@@ -723,11 +805,28 @@ function panelHtml() {
         ? 'After linking: ' + it.id + ' moves to In Progress. When PR #' + S.pick + ' is merged, ' + it.id + ' moves to Done automatically.'
         : 'Pick one PR to see what will happen.') + '</span></p>' +
       '<div class="row"><button type="button" class="btn primary" data-a="link"' + (S.pick ? '' : ' disabled') + '>' + ic('link') + (S.pick ? 'Link PR #' + S.pick : 'Link PR') + '</button><button type="button" class="btn" data-a="pick-cancel">Cancel</button></div>';
+  } else if (it.ev) {
+    const ev = it.ev, wait = ev.state === 'pending';
+    prBox = '<div class="box"><div class="row">' + evTag(ev) + '<b>' + esc(ev.name) + '</b>' + (ev.state === 'approved' ? verifiedTag : '') + '</div>' +
+      '<div class="row muted" style="font-size:13px; margin-top:6px">' + av(ev.by) + 'uploaded by ' + esc(ev.by) + ' · ' + ev.t + '</div>' +
+      (ev.note ? '<p style="margin-top:8px">' + esc(ev.note) + '</p>' : '') + '</div>' +
+      (wait ? '<p class="hint">' + ic('info') + '<span>Waiting for a reviewer to check this ' + ev.kind.toLowerCase() + '. Once approved, ' + it.id + ' moves to Done as Verified.</span></p>' : '') +
+      (wait && isMentor() ? '<div><button type="button" class="btn primary" data-a="ev-approve">' + ic('check') + 'Approve ' + ev.kind.toLowerCase() + '</button></div>' : '') +
+      (wait && isMhs() ? '<div><button type="button" class="link" data-a="ev-remove">' + ic('trash') + 'Remove proof</button></div>' : '');
+  } else if (S.attaching) {
+    prBox = '<div class="box" style="display:flex; flex-direction:column; gap:12px">' +
+      '<div class="field"><label for="ev-kind">Type of proof</label><select class="inp" id="ev-kind"><option>Receipt</option><option>Photo</option><option>Contract</option><option>Other document</option></select></div>' +
+      '<div class="field"><label for="ev-file">File</label><input class="inp" id="ev-file" type="file" accept="image/*,.pdf" aria-describedby="ev-err"><span class="err" id="ev-err" role="alert"></span></div>' +
+      '<div class="field"><label for="ev-note">Note for the reviewer <span class="muted" style="font-weight:400">(optional)</span></label><input class="inp" id="ev-note" autocomplete="off" placeholder="e.g. Total Rp 412.000"></div>' +
+      '<div class="proto-box"><button type="button" class="btn proto" data-a="ev-sample">' + ic('flask') + 'Use a sample file</button><span style="flex:1 1 180px">Prototype only: attaches a demo file so you don\'t need one on this device.</span></div>' +
+      '<p class="hint">' + ic('info') + '<span>After attaching: ' + it.id + ' moves to In Progress. When a reviewer approves the proof, it moves to Done as Verified.</span></p>' +
+      '<div class="row"><button type="button" class="btn primary" data-a="ev-attach">' + ic('clip') + 'Attach proof</button><button type="button" class="btn" data-a="ev-cancel">Cancel</button></div></div>';
   } else {
-    prBox = '<div class="box row" style="justify-content:space-between"><span class="muted">No PR linked yet.</span>' +
-      (!isMhs() ? '' : S.repo.state === 'connected'
+    prBox = '<div class="box row" style="justify-content:space-between"><span class="muted">No proof yet. Link a PR for code, or attach a receipt, photo or contract.</span>' +
+      (!isMhs() ? '' : '<span class="row">' + (S.repo.state === 'connected'
         ? '<button type="button" class="btn" data-a="pick">' + ic('link') + 'Link PR</button>'
-        : '<button type="button" class="link" data-a="view" data-v="settings">' + ic('settings') + 'Connect a repository first</button>') + '</div>';
+        : '<button type="button" class="link" data-a="view" data-v="settings">' + ic('settings') + 'Connect a repository to link PRs</button>') +
+        '<button type="button" class="btn" data-a="ev-new">' + ic('clip') + 'Attach proof</button></span>') + '</div>';
   }
   const linked = S.docs.filter((d) => d.item === it.id), free = S.docs.filter((d) => !d.item);
   const docsSec = isLink() ? '' : '<section><h3>' + ic('doc', 14) + 'Related documents</h3>' +
@@ -735,7 +834,7 @@ function panelHtml() {
     (isMhs() && free.length ? '<div class="field" style="margin-top:8px"><label for="doc-link">Link a document</label><select class="inp" id="doc-link"><option value="">Choose a document…</option>' +
       free.map((d) => '<option value="' + d.id + '">' + esc(d.title) + '</option>').join('') + '</select></div>' : '') + '</section>';
   const feed = S.log.filter((e) => e.item === it.id);
-  const statusCtl = isMhs() && !it.pr
+  const statusCtl = isMhs() && !it.pr && !it.ev
     ? '<select class="inp" id="st" aria-label="Change status manually" style="width:auto">' + Object.keys(LABEL).map((k) => '<option value="' + k + '"' + (k === it.status ? ' selected' : '') + '>' + LABEL[k] + '</option>').join('') + '</select>'
     : '<span class="pill"><span class="sdot ' + it.status + '"></span>' + LABEL[it.status] + '</span>';
   return '<div class="scrim" data-a="close"></div>' +
@@ -745,9 +844,9 @@ function panelHtml() {
     '<button type="button" class="btn ghost" id="p-close" data-a="close" aria-label="Close panel">' + ic('x') + '</button></span></div>' +
     '<h2 id="p-h">' + esc(it.title) + '</h2>' +
     '<div class="row">' + statusCtl + flagTag(it) + (it.verified ? verifiedTag : '') + '<span class="row muted" style="font-size:14px">' + av(it.pic) + 'Assignee ' + esc(it.pic) + '</span></div>' +
-    (it.pr && isMhs() ? '<p class="muted" style="font-size:13px; margin-top:-10px">This item follows its PR, so its status is not changed manually.</p>' : '') +
+    ((it.pr || it.ev) && isMhs() ? '<p class="muted" style="font-size:13px; margin-top:-10px">This item follows its proof, so its status is not changed manually.</p>' : '') +
     '<section><h3>' + ic('doc', 14) + 'Description</h3><p>' + (esc(it.desc) || '<span class="muted">No description.</span>') + '</p></section>' +
-    '<section style="display:flex; flex-direction:column; gap:10px"><h3 style="margin:0">' + ic('pr', 14) + 'Pull request</h3>' + prBox + '</section>' +
+    '<section style="display:flex; flex-direction:column; gap:10px"><h3 style="margin:0">' + ic('clip', 14) + 'Proof of work</h3>' + prBox + '</section>' +
     docsSec + commentsHtml(it) +
     '<section><h3>' + ic('log', 14) + 'Activity for this item</h3>' + (feed.length ? '<div class="logbox">' + feed.map(entryHtml).join('') + '</div>' : '<p class="muted">No activity yet.</p>') + '</section>' +
     '</aside>';
@@ -755,6 +854,7 @@ function panelHtml() {
 
 function render() {
   $('nav').innerHTML =
+    '<button type="button" data-a="view" data-v="overview"' + (S.view === 'overview' ? ' aria-current="page"' : '') + '><span class="l">' + ic('home') + 'Overview</span></button>' +
     // When the group is collapsed, Board itself carries the "you are here" mark for its sub pages.
     '<div class="navrow"><button type="button" data-a="view" data-v="board"' + (S.view === 'board' && (!S.filter || !S.navOpen) ? ' aria-current="page"' : '') + '><span class="l">' + ic('board') + 'Board</span></button>' +
     '<button type="button" class="tog" data-a="tog" aria-expanded="' + S.navOpen + '" aria-controls="subs" aria-label="' + (S.navOpen ? 'Collapse' : 'Expand') + ' Board sub menu">' + ic('down', 14) + '</button></div>' +
@@ -766,7 +866,7 @@ function render() {
     (isLink() ? '' : '<button type="button" data-a="view" data-v="docs"' + (S.view === 'docs' ? ' aria-current="page"' : '') + '><span class="l">' + ic('doc') + 'Documents</span></button>' +
       '<button type="button" data-a="view" data-v="settings"' + (S.view === 'settings' ? ' aria-current="page"' : '') + '><span class="l">' + ic('settings') + 'Settings</span></button>');
   if (S.view === 'dead') $('nav').innerHTML = '';
-  const who = isMhs() ? ME : isLink() ? 'Guest viewer' : 'Ms. Sari';
+  const who = isMhs() ? ME : isLink() ? 'Guest viewer' : 'Hafiz';
   $('me').innerHTML = av(who) + '<span><strong>' + who + '</strong><small>' + (isMhs() ? 'Student' : isLink() ? 'Shared link' : 'Mentor') + '</small></span>';
   $('repo').innerHTML = S.repo.state === 'connected'
     ? ic('repo', 14) + '<span class="mono">' + esc(S.repo.name) + '</span><span class="dot"></span>Connected'
@@ -780,11 +880,11 @@ function render() {
   $('toast-u').innerHTML = ic('undo', 14) + 'Undo';
   $('f-save').innerHTML = ic('check') + 'Save';
   $('title').textContent = {
-    board: S.filter ? 'Board / ' + LABEL[S.filter] : 'Board', log: 'Activity Log',
+    overview: 'Overview', board: S.filter ? 'Board / ' + LABEL[S.filter] : 'Board', log: 'Activity Log',
     docs: S.docOpen ? 'Documents / ' + S.docOpen : 'Documents', settings: 'Settings', dead: 'Link not active'
   }[S.view];
   $('content').innerHTML = {
-    board: () => (S.filter ? listHtml() : boardHtml()), log: logHtml, docs: docsHtml, settings: settingsHtml,
+    overview: overviewHtml, board: () => (S.filter ? listHtml() : boardHtml()), log: logHtml, docs: docsHtml, settings: settingsHtml,
     dead: () => '<section class="sect"><h2>' + ic('alert') + 'This link is no longer active</h2><p class="muted">The team turned off sharing or reset the link. Ask them for a new one.</p></section>'
   }[S.view]();
   $('overlay').innerHTML = S.open ? panelHtml() : '';
@@ -800,8 +900,21 @@ document.addEventListener('click', (e) => {
   const fail = (errId, msg, focusId) => { $(errId).textContent = msg; $(focusId).focus(); };
   if (a === 'view') { S.open = null; go(el.dataset.v + (el.dataset.f ? '/' + el.dataset.f : '')); render(); return; } // hashchange re-renders the new view
   else if (a === 'tog') S.navOpen = !S.navOpen;
-  else if (a === 'role') { S.role = el.dataset.r; S.picking = false; }
-  else if (a === 'open') { if (!item(el.dataset.id)) return; S.open = el.dataset.id; S.picking = false; S.pick = null; }
+  else if (a === 'role') { S.role = el.dataset.r; S.picking = false; S.attaching = false; if (isMentor()) go('overview'); } // the overview is the mentor's home
+  else if (a === 'open') { if (!item(el.dataset.id)) return; S.open = el.dataset.id; S.picking = false; S.pick = null; S.attaching = false; }
+  else if (a === 'ev-new') S.attaching = true;
+  else if (a === 'ev-cancel') S.attaching = false;
+  else if (a === 'ev-attach') {
+    const f = $('ev-file').files[0];
+    if (!f) return fail('ev-err', 'Choose a file to attach', 'ev-file');
+    attachEv(S.open, $('ev-kind').value, f.name, val('ev-note'));
+  }
+  else if (a === 'ev-sample') {
+    const k = $('ev-kind').value;
+    attachEv(S.open, k, { Receipt: 'receipt-print-shop.jpg', Photo: 'interview-photo.jpg', Contract: 'signed-agreement.pdf' }[k] || 'proof-document.pdf', val('ev-note'));
+  }
+  else if (a === 'ev-approve') approveEv(S.open);
+  else if (a === 'ev-remove') removeEv(S.open);
   else if (a === 'edit') {
     const it = item(S.open);
     S.editing = it.id; $('dlg-h').textContent = 'Edit ' + it.id; $('f-err').textContent = '';
